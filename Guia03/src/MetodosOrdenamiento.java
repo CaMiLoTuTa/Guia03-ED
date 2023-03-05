@@ -23,9 +23,14 @@ public class MetodosOrdenamiento {
         // metodoBurbuja();
         // metodoInsercion();
         // metodoSeleccion();
-        // metodoShell();
+        metodoShell();
 
-        // metodoQuickSort(arreglo, 0, nEl - 1);
+        long startTime = System.currentTimeMillis();
+        metodoQuickSort(arreglo, 0, nEl - 1);
+        long endTime = System.currentTimeMillis();
+        long totalTime = endTime - startTime;
+        JOptionPane.showMessageDialog(null,
+                "El tiempo total del método quick-sort es: " + totalTime + " mili-segundos.");
 
         // imprimirArreglo();
     }
@@ -107,7 +112,6 @@ public class MetodosOrdenamiento {
 
     // ? Para una cantidad de datos grandes
     public static void metodoQuickSort(int arreglo[], int primero, int ultimo) {
-        long startTime = System.currentTimeMillis();
         int i, j, central;
         double pivote;
 
@@ -127,14 +131,10 @@ public class MetodosOrdenamiento {
             }
         } while (i <= j);
         if (primero < j)
-            metodoQuickSort(arreglo, primero, j); // mismo proceso con sublista izqda
+            metodoQuickSort(arreglo, primero, j);
         if (i < ultimo)
-            metodoQuickSort(arreglo, i, ultimo); // mismo proceso con sublista derecha
+            metodoQuickSort(arreglo, i, ultimo);
 
-        long endTime = System.currentTimeMillis();
-        long totalTime = endTime - startTime;
-        JOptionPane.showMessageDialog(null,
-                "El tiempo total del método quick-sort es: " + totalTime + " mili-segundos.");
     }
 
     public static void intercambiar(int[] arreglo, int i, int j) {
