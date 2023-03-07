@@ -9,22 +9,27 @@ public class MetodosOrdenamiento {
     // * Luego se comprar el actual con el anterior
     // * if nActual > nSiguiente: se intercambian
     static int[] arreglo;
-    static int nEl;
-    int aux;
-    String text, text2;
+    static int nEl, aux;
     public Random random = new Random();
 
     public MetodosOrdenamiento() {
         nEl = Integer.parseInt(JOptionPane.showInputDialog(null, "Cantidad de elementos del arreglo: "));
         arreglo = new int[nEl];
-        text = "";
-        text2 = "";
-        leerArreglo();
-        // metodoBurbuja();
-        // metodoInsercion();
-        // metodoSeleccion();
-        metodoShell();
 
+        leerArreglo();
+
+        imprimirArreglo();
+
+        // metodoBurbuja();
+
+        // metodoInsercion();
+
+        // metodoSeleccion();
+
+        // metodoShell();
+
+        // ? Se tiene que calcular el tiempo de ejecución en la llamada del método
+        // ? debido a su recursividad.
         long startTime = System.currentTimeMillis();
         metodoQuickSort(arreglo, 0, nEl - 1);
         long endTime = System.currentTimeMillis();
@@ -32,7 +37,7 @@ public class MetodosOrdenamiento {
         JOptionPane.showMessageDialog(null,
                 "El tiempo total del método quick-sort es: " + totalTime + " mili-segundos.");
 
-        // imprimirArreglo();
+        imprimirArreglo();
     }
 
     public void leerArreglo() {
@@ -48,8 +53,13 @@ public class MetodosOrdenamiento {
     }
 
     public void imprimirArreglo() {
+        String text = "";
         for (int i = 0; i < arreglo.length; i++) {
-            text += arreglo[i] + ", ";
+            if ((nEl - 1) == i) {
+                text += arreglo[i] + ".";
+            } else {
+                text += arreglo[i] + ", ";
+            }
         }
         JOptionPane.showMessageDialog(null, "El arreglo es: \n" + text);
     }
@@ -134,7 +144,6 @@ public class MetodosOrdenamiento {
             metodoQuickSort(arreglo, primero, j);
         if (i < ultimo)
             metodoQuickSort(arreglo, i, ultimo);
-
     }
 
     public static void intercambiar(int[] arreglo, int i, int j) {
@@ -164,8 +173,6 @@ public class MetodosOrdenamiento {
     }
 
     public static void main(String[] args) {
-
         new MetodosOrdenamiento();
-
     }
 }
