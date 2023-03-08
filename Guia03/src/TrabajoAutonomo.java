@@ -14,7 +14,7 @@ public class TrabajoAutonomo {
     int aux;
     int[] lista;
 
-    // * Genere una lista de 1000 números aleatorios de 100 a 7000.
+    // * Genere una lista de 500 números aleatorios de 100 a 7000.
     public void numAle() {
         Random random = new Random();
         lista = new int[nEl];

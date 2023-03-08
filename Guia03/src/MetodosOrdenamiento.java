@@ -22,7 +22,7 @@ public class MetodosOrdenamiento {
 
         // metodoBurbuja();
 
-        // metodoInsercion();
+        metodoInsercion();
 
         // metodoSeleccion();
 
